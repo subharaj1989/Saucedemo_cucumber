@@ -10,4 +10,16 @@ Feature: Product List Validation
   |Name (Z to A)|
   |Price (low to high)|
   |Price (high to low)|
+  
+  Scenario Outline: Verify the count in the Cart icon is displaying correctly 
+    Given the user is on the product list page
+    When the user clicks on the add to cart for "<Product Names>" 
+    Then the count displayed in the Cart icon should be equal to the number of products added
+    
+    Examples:
+    |Product Names|
+    |Sauce Labs Onesie|
+    |Sauce Labs Bike Light|
+    |Sauce Labs Bolt T-Shirt|
+  
    

@@ -13,6 +13,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utils.sessionvariables;
+
 public class productlistpage {
 
 	WebDriver driver;
@@ -24,6 +26,13 @@ public class productlistpage {
 
 	@FindBy(xpath="//*[@id=\"inventory_container\"]//div[@class=\"inventory_item_price\"]")
 	List<WebElement> lproductprice;
+	
+	@FindBy(xpath="//button[contains(@id,\"add-to-cart\")]")
+	List<WebElement> laddtoCart;
+	
+	@FindBy(xpath="//*[@id=\"shopping_cart_container\"]/a/span[@class=\"shopping_cart_badge\"]")
+	WebElement lblCarticon;
+	static int count=0;
 
 
 	public productlistpage(WebDriver driver)
@@ -94,6 +103,26 @@ public class productlistpage {
 		}
 		
 		return isSorted;
+	}
+	
+	public void AddtoCart(String productname)
+	{
+		for(int i=0;i<lproductname.size();i++)
+		{
+			if(lproductname.get(i).getText().equals(productname))
+			{
+				laddtoCart.get(i).click();
+				count++;
+				break;
+			}
+		}
+		
+		sessionvariables.setname(Integer.toString(count));
+	}
+	
+	public String getCartCount()
+	{
+		return lblCarticon.getText();
 	}
 
 }

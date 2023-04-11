@@ -2,12 +2,16 @@ package stepdefinitions;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 
 import hooks.Hooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import utils.ConfigReader;
 import utils.sessionvariables;
 import webpages.Loginpage;
 import webpages.productlistpage;
@@ -35,4 +39,20 @@ public class ProductListsteps {
 	   boolean isSorted= pgproductlist.sortvalidation(sessionvariables.getname());
 	   Assert.assertTrue(isSorted);
 	}
+	
+	@When("the user clicks on the add to cart for {string}")
+	public void the_user_clicks_on_the_add_to_cart_for(String productname) {
+		 pgproductlist=new productlistpage(Hooks.driver);
+		 pgproductlist.AddtoCart(productname);
+		 
+	}
+	@Then("the count displayed in the Cart icon should be equal to the number of products added")
+	public void the_count_displayed_in_the_cart_icon() {
+	    Assert.assertEquals(pgproductlist.getCartCount(),sessionvariables.getname());
+	}
+	
+
+
+
+	
 }

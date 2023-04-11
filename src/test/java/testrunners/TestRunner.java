@@ -13,8 +13,6 @@ import io.cucumber.junit.CucumberOptions;
 	glue={"stepdefinitions","hooks"},
 	plugin= {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 	
-	
-
 		)
 
 
