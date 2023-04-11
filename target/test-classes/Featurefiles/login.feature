@@ -2,7 +2,7 @@ Feature:Login Functionality
  Scenario Outline: Login validation with valid inputs
    Given The user has launched the application
    When the user enters "<username>" and "<password>"
-   Then user lands on homepage
+   Then the user is on the homepage
   # And user logsout
    
    Examples:

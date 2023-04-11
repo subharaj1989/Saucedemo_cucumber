@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class driverfactory {
-    
+
 	public static WebDriver driversetup()
 	{
 		WebDriver driver;
@@ -14,5 +14,5 @@ public class driverfactory {
 		driver=new ChromeDriver();
 		return driver;
 	}
-	
+
 }

@@ -17,14 +17,14 @@ public class Loginpage {
 	private WebElement btnLoginButton;
 	@FindBy(xpath="//*[@id=\"login_button_container\"]//div[@class=\"error-message-container error\"]/h3")
 	private WebElement lblErrormessage;
-	
-	
+
+
 	public Loginpage(WebDriver driver)
 	{
 		this.driver=driver;
     	PageFactory.initElements(driver, this);
 	}
-	
+
 	public void enterdata(String username,String password)
 	{
 		txtUsername.clear();
@@ -33,16 +33,16 @@ public class Loginpage {
 		txtPassword.sendKeys(password);
 		btnLoginButton.click();
 	}
-	
+
 	public String getTitle()
 	{
 		return driver.getTitle();
 	}
-	
+
 	public String geterrormessage()
 	{
 		return lblErrormessage.getText();
-		
-		
+
+
 	}
 }

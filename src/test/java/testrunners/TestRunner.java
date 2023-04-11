@@ -2,19 +2,21 @@ package testrunners;
 
 
 
+import org.junit.runner.RunWith;
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-	features="src/test/resources/Featurefiles/login.feature",
+	features="src/test/resources/Featurefiles",
 	glue={"stepdefinitions","hooks"},
-	plugin= {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-	monochrome=true
-		
-		)
+	plugin= {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 	
+	
+
+		)
+
 
 public class TestRunner {
 
